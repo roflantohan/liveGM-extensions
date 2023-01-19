@@ -1,0 +1,39 @@
+html{
+    width: 200px;
+    background-color: #0b212f;
+    color: #cdd4db;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+}
+
+#header{
+    font-weight: bold;
+}
+
+#panel {
+    text-align: center;
+    display: inline-block;
+}
+
+.filter_btn {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    background-color:#44586a;
+    border-radius: 7px;
+    color: #cdd4db;
+    border: 1px solid #cdd4db;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.filter_btn:hover{
+    cursor: pointer;
+}
+
+.filter_btn:active{
+    background-color:#a2b4c3;
+    color: #44586a;
+}
