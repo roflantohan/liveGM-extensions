@@ -153,15 +153,18 @@ btnDownload.addEventListener("click", async () => {
     // вызываем функцию, в которой лежит запуск снежинок
     function: execFun,
   }, async(data) => {
-    divLog.innerHTML = `Записи получены`
     const schedules = data[0].result;
+    if(schedules.length) divLog.innerHTML = `<p>Schedule's found</p>`
+    else divLog.innerHTML = `<p>Schedule's not found</p>`
     for(let i = 0; i < schedules.length; i++){
       const {sport, gameDate, schedule} = schedules[i]
+      console.log({sport, gameDate, schedule})
       if(schedule.length){
         const {error, data} = await requestPost(URL_POST_DOWNLOAD, {idSport: ID_SPORT[sport], gameDate, schedule})
+        console.log({error, data})
         if(error) divLog.innerHTML += `<p>${error}</p>`
+        else divLog.innerHTML += `<p>Schedule's sended</p>`
       }
     }
-    divLog.innerHTML += `<p>Записи отправлены</p>`
   });
 });

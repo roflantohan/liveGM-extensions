@@ -1,5 +1,5 @@
 html{
-    width: 200px;
+    width: 180px;
     background-color: #0b212f;
     color: #cdd4db;
     font-family: 'Roboto', sans-serif;
@@ -36,4 +36,9 @@ html{
 .filter_btn:active{
     background-color:#a2b4c3;
     color: #44586a;
+}
+
+.check {
+    width : 20px;
+    height : 15px;
 }

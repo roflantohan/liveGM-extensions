@@ -37,6 +37,25 @@ const NAME_BOOKMAKER = {
     'Williamhill': 7,
 }
 
+const INTERVALS_TO_TIME = {
+    morning: {
+      start: "06:00:00",
+      end: "12:00:00",
+    },
+    lunch: {
+      start: "12:00:00",
+      end: "16:00:00",
+    },
+    evening: {
+      start: "16:00:00",
+      end: "20:00:00",
+    },
+    night: {
+      start: "20:00:00",
+      end: "09:59:00",
+    }
+}
+
 
 const URL_SETKA_CUP = "https://manager.setka-cup.com/bookie-match-report/view";
 const URL_ESB = "https://manager.esports-battle.com/bookie-match-report/default/view";

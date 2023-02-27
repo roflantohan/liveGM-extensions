@@ -154,20 +154,49 @@ btnUpload.addEventListener("click", async () => {
     }, async(data) => {
         const {gameDate} = data[0].result;
         divLog.innerHTML = `<p>Игровой день: ${gameDate}</p>`
-        const sports = getCheckedSport();
-        const idSports = sports.map(sport => ID_SPORT[sport])
-        let report = {}
-        for(let i = 0; i < idSports.length; i++){
-            const {error, data} = await requestPost(URL_POST_UPLOAD, {idSport: idSports[i], gameDate})
-            Object.assign(report, data)
-        }
-
-        divLog.innerHTML += `<p>Получено ${Object.keys(report).length} записей</p>`
+        const intervals = getCheckedIntervals();
 
         let fillHandler = () => {};
+        let idSports = []
 
-        if(url.includes(URL_SETKA_CUP)) fillHandler = fillManagerSC
-        if(url.includes(URL_ESB)) fillHandler = fillManagerESB
+        if(url.includes(URL_SETKA_CUP)) {
+            fillHandler = fillManagerSC
+            idSports = ["Table Tennis"].map(sport => ID_SPORT[sport])
+        }
+        if(url.includes(URL_ESB)) {
+            fillHandler = fillManagerESB
+            idSports = ["FIFA", "NBA", "FIFA Bot", "NHL"].map(sport => ID_SPORT[sport])
+        }
+
+        let raw = {}
+        for(let i = 0; i < idSports.length; i++){
+            const {error, data} = await requestPost(URL_POST_UPLOAD, {idSport: idSports[i], gameDate})
+            Object.assign(raw, data)
+        }
+        let report = {}
+        if(intervals.length){
+            for(let i in raw){
+                const match = raw[i]
+                const {date_planned} = match
+                for(let j of intervals) {
+                    const timeInterval = INTERVALS_TO_TIME[j]
+                    const timePlanned = new Date(date_planned)
+                    const timeStart = new Date(`${gameDate}T${timeInterval.start}`)
+                    const timeEnd = new Date(`${gameDate}T${timeInterval.end}`)
+                    if(j === "night"){
+                        timeEnd.setDate(timeEnd.getDate() + 1)
+                    }
+                    //console.log({timePlanned, timeStart, timeEnd})
+                    if(timePlanned >= timeStart && timePlanned < timeEnd) report[i] = match
+                }
+            }
+        }else{
+            report = raw
+        }
+        
+        console.log(report)
+
+        divLog.innerHTML += `<p>Получено ${Object.keys(report).length} записей</p>`
 
         chrome.scripting.executeScript({
             // скрипт будет выполняться во вкладке, которую нашли на пр2едыдущем этапе
