@@ -116,7 +116,8 @@ window.onload = async() => {
   const checkboxes = document.querySelectorAll('input[name="interval"]');
   const intervals = await getLocalStorage("intervals");
 
-  if(checkboxes.length !== intervals.length && intervals.length){
+
+  if(intervals && checkboxes.length !== intervals.length && intervals.length){
     checkboxes.forEach(box => {
       box.checked = false;
       if(intervals.includes(box.value)) box.checked = true
