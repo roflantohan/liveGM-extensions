@@ -229,10 +229,8 @@ const fillReport = async() => {
 
 const autoFill = async() => {
     if(!checkURL(URL_ESB) && !checkURL(URL_SETKA_CUP)) return;
-    const answer = confirm("Start auto filling schedule ?")
-    if(!answer) return
     await fillReport()
-    setInterval(fillReport, 60000*5)
+    setTimeout(location.reload, 60000*5)
 }
 
 autoFill()
