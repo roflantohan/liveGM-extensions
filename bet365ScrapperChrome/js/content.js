@@ -8,14 +8,16 @@ const leagueContainerSelector = ".ovm-Competition.ovm-Competition-open"
 
 const leagueNameSelector = ".ovm-CompetitionHeader_NameText"
 
-const gameContainerSelectorOne = ".ovm-FixtureDetailsTwoWay_TeamsWrapper" //FIFA, NBA
+const gameContainerSelectorOne = ".ovm-FixtureDetailsTwoWay_TeamsWrapper" //FIFA
 
-const gameNameSelectorOne = ".ovm-FixtureDetailsTwoWay_TeamName"//FIFA, NBA
+const gameNameSelectorOne = ".ovm-FixtureDetailsTwoWay_TeamName"//FIFA
 
 const gameContainerSelectorTwo = ".ovm-FixtureDetailsWithIndicators_TeamsWrapper" //Table Tennis
 
 const gameNameSelectorTwo = ".ovm-FixtureDetailsWithIndicators_Team"//Table Tennis
 
+const gameContainerSelectorThree = '.ovm-FixtureDetailsTwoWayBasketball_TeamsWrapper' //nba
+const gameNameSelectorThree = '.ovm-FixtureDetailsTwoWayBasketball_TeamName ' //nba
 
 const FILTERS = [
     {
@@ -57,7 +59,7 @@ const parseData = () => {
 
     let gameContainerSelector, gameNameSelector;
 
-    if(sportName.includes("Soccer") || sportName.includes("Basketball")){
+    if(sportName.includes("Soccer")){
         gameContainerSelector = gameContainerSelectorOne;
         gameNameSelector = gameNameSelectorOne;
     }
@@ -65,6 +67,11 @@ const parseData = () => {
     if(sportName.includes("Table Tennis")){
         gameContainerSelector = gameContainerSelectorTwo;
         gameNameSelector = gameNameSelectorTwo;
+    }
+
+    if(sportName.includes("Basketball")){
+        gameContainerSelector = gameContainerSelectorThree;
+        gameNameSelector = gameNameSelectorThree;
     }
 
     const leagueDivs = document.querySelectorAll(leagueContainerSelector)
