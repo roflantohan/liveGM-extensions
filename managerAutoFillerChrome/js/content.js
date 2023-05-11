@@ -6,7 +6,7 @@ const URL_POST_UPLOAD = "http://181.215.69.105:4000/report/get"
 
 const NAME_BOOKMAKER = {
     'Bet365': 1,
-    'Bet365 (prematch)': 2,
+    'Bet365 (prematch)': 1,
     'Betvictor': 11,
     'Fortuna': 5,
     'Hattrick': 6, 
@@ -15,6 +15,7 @@ const NAME_BOOKMAKER = {
     'Tipsport': 4, 
     'Trillion': 10,
     'Williamhill': 7,
+    'Betconstruct': 12,
 }
 const ID_SPORT = {
     "FIFA": 1,
