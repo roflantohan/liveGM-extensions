@@ -9,11 +9,14 @@
     </head>
     <body>
         <div id="header"></div>
+
         <div>
-            <div>General</div>
-            <div>Statistics</div>
+            <button class="tablink" id="gen_btn">General</button>
+            <button class="tablink" id="stat_btn">Statistics</button>
         </div>
-        <div id="updateWin">
+        
+
+        <div id="general" class="tabcontent">
             <div id="sport"></div>
 
             <div id="options"></div>
@@ -25,13 +28,15 @@
     
             <div id="log"></div>
         </div>
-        <div id="statWin">
-
+        
+        <div id="stat" class="tabcontent">
+            <button class="filter_btn" id="btn_stat">Get Stat</button>
         </div>
-
+        
         <script src="./js/config.js"></script>
         <script src="./js/index.js"></script>
         <script src="./js/downloadData.js"></script>
         <script src="./js/uploadData.js"></script>
+        <script src="./js/statData.js"></script>
     </body>
 </html>

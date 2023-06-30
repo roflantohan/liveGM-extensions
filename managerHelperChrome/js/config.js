@@ -26,7 +26,7 @@ const ID_SPORT = {
 }
 const NAME_BOOKMAKER = {
     'Bet365': 1,
-    'Bet365 (prematch)': 2,
+    'Bet365 (prematch)': 1,
     'Betvictor': 11,
     'Fortuna': 5,
     'Hattrick': 6, 
@@ -35,6 +35,7 @@ const NAME_BOOKMAKER = {
     'Tipsport': 4, 
     'Trillion': 10,
     'Williamhill': 7,
+    'Betconstruct': 12,
 }
 
 const INTERVALS_TO_TIME = {

@@ -194,8 +194,6 @@ btnUpload.addEventListener("click", async () => {
             report = raw
         }
         
-        console.log(report)
-
         divLog.innerHTML += `<p>Получено ${Object.keys(report).length} записей</p>`
 
         chrome.scripting.executeScript({

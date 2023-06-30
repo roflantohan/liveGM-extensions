@@ -228,10 +228,14 @@ const fillReport = async() => {
     return fillHandler(report, NAME_BOOKMAKER)
 }
 
+const updatePg = () => {
+    location.reload()
+}
+
 const autoFill = async() => {
     if(!checkURL(URL_ESB) && !checkURL(URL_SETKA_CUP)) return;
     await fillReport()
-    setTimeout(location.reload, 60000*5)
+    setTimeout(updatePg, 60000*5)
 }
 
 autoFill()

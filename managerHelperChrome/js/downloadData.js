@@ -58,8 +58,8 @@ const getScheduleMngESB = () => {
   const LEAGUE_VIRTUAL = "Virtual eComp"
   const LEAGUE_NBA = "Mixed conference"
   const LEAGUE_MASTER_CUP = "Master Cup"
-  const LEAGUE_NHL_1 = "Смешанная конференция"
-  const LEAGUE_NHL_2 = "Сборные команды"
+  const LEAGUE_NHL_1 = ["Смешанная конференция", "Мировые команды", "Восточная конференция", "Сборные команды", "Западная конференция"]
+
 
   const table = document.getElementsByClassName("table table-striped table-bordered table-condensed")[0];
   const tbody = table.getElementsByTagName("tbody")[0];
@@ -99,11 +99,11 @@ const getScheduleMngESB = () => {
       record.dateEnd = new Date(datePlanned.getTime() + 1000 * 60 * 30).toISOString();
       scheduleNBA.push(record);
     }
-    if(tournament.includes(LEAGUE_NHL_1) || tournament.includes(LEAGUE_NHL_2)) {
+    if(LEAGUE_NHL_1.includes(tournament)) {
       record.dateEnd = new Date(datePlanned.getTime() + 1000 * 60 * 30).toISOString();
       scheduleNHL.push(record);
     }
-    if(!tournament.includes(LEAGUE_VIRTUAL) && !tournament.includes(LEAGUE_NBA) && !tournament.includes(LEAGUE_NHL_1) && !tournament.includes(LEAGUE_NHL_2)) {
+    if(!tournament.includes(LEAGUE_VIRTUAL) && !tournament.includes(LEAGUE_NBA) && !LEAGUE_NHL_1.includes(tournament)) {
       record.dateEnd = new Date(datePlanned.getTime() + 1000 * 60 * 12).toISOString();
       if(tournament.includes(LEAGUE_MASTER_CUP)){
         record.dateEnd = new Date(datePlanned.getTime() + 1000 * 60 * 30).toISOString();

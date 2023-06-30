@@ -7,6 +7,7 @@ const divOpt = document.getElementById("options")
 
 const btnUpload = document.getElementById("btn_upload");
 const btnDownload = document.getElementById("btn_download");
+const btnStat = document.getElementById("stat_btn")
 
 const requestPost = (path, data) => fetch(path, {
     method: "POST",
@@ -81,9 +82,51 @@ const createComponent = (tag, component) => tag.innerHTML = component
 const addComponent = (tag, component) => tag.innerHTML += component
 const clearComponent = (tag) => tag.innerHTML = ""
 
+
+const openPage = (pageName) => {
+  // Hide all elements with class="tabcontent" by default */
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+  }
+
+  // Remove the background color of all tablinks/buttons
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+  }
+
+  // Show the specific tab content
+  document.getElementById(pageName).style.display = "block";
+
+
+}
+
+const generalBtn = document.getElementById("gen_btn")
+const statBtn = document.getElementById("stat_btn")
+
+generalBtn.addEventListener("click", () => {
+  openPage('general')
+  generalBtn.style.backgroundColor = "#494e54"
+})
+statBtn.addEventListener("click", () => {
+  openPage('stat')
+  statBtn.style.backgroundColor = "#494e54"
+})
+
+
+
+
+
+
+
 window.onload = async() => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   const url = await tab.url
+
+  generalBtn.click()
+
 
   //components set
   let headerComponent = ErrorHeaderPageComponent
