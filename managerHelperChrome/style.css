@@ -1,5 +1,6 @@
 html{
-    width: 300px;
+    width: 700px;
+    height: 500px;
     background-color: #1a1e22;
     color: #d8d2cc;
     font-family: 'Roboto', sans-serif;
@@ -70,4 +71,28 @@ body{
     display: none;
     padding: 50px 20px;
     height: 100%;
+}
+
+
+.vertical {
+    writing-mode: vertical-lr;
+}
+
+td {
+    text-align: center;
+}
+
+td:hover{
+    background-color: gray;
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: #494e54;
+}
+
+
+#stat {
+    height: 300px;
+    overflow-x:auto;
 }

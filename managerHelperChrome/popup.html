@@ -30,13 +30,36 @@
         </div>
         
         <div id="stat" class="tabcontent">
-            <button class="filter_btn" id="btn_stat">Get Stat</button>
+            
+            <div>
+                <button class="filter_btn" id="btn_stat">Get Stat</button>
+                <button class="filter_btn" id="btn_clear">Clear All</button>
+                <button class="filter_btn" id="btn_clear">Clear List</button>
+            </div>
+
+            <div class="table_cont">
+                <table id="stat_table">
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="table_cont">
+                <table id="list_table">
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
         
         <script src="./js/config.js"></script>
         <script src="./js/index.js"></script>
+        <script src="./js/statData.js"></script>
         <script src="./js/downloadData.js"></script>
         <script src="./js/uploadData.js"></script>
-        <script src="./js/statData.js"></script>
     </body>
 </html>

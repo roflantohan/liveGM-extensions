@@ -7,7 +7,6 @@ const divOpt = document.getElementById("options")
 
 const btnUpload = document.getElementById("btn_upload");
 const btnDownload = document.getElementById("btn_download");
-const btnStat = document.getElementById("stat_btn")
 
 const requestPost = (path, data) => fetch(path, {
     method: "POST",
@@ -106,10 +105,14 @@ const openPage = (pageName) => {
 const generalBtn = document.getElementById("gen_btn")
 const statBtn = document.getElementById("stat_btn")
 
+const btnStat = document.getElementById("btn_stat")
+
+
 generalBtn.addEventListener("click", () => {
   openPage('general')
   generalBtn.style.backgroundColor = "#494e54"
 })
+
 statBtn.addEventListener("click", () => {
   openPage('stat')
   statBtn.style.backgroundColor = "#494e54"
