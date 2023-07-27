@@ -144,7 +144,7 @@ const scrapper = () => {
 
     const games = parseData()
 
-    if(!games.length) sendMessage("Error", "Not found games. Please check browser")
+    if(!games.length) sendMessage("Error", "Bet365: Not found games. Please check browser")
 
     const data = filterGames(games)
 

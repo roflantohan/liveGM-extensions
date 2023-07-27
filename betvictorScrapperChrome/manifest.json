@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "BetvictorScrapper",
+    "description": "BetvictorScrapper",
+    "version": "1.0.0",
+    "icons": {
+        "256": "favicon.png"
+    },
+    "action": {
+        "default_title": "BetvictorScrapper", 
+        "default_icon": "favicon.png"
+    },
+    
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": [ "./js/content.js" ],
+            "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "service_worker": "./js/background.js"
+    },
+    "permissions": ["activeTab", "scripting", "storage"]
+}
+
